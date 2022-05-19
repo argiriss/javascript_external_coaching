@@ -4,16 +4,32 @@ window.onload = () => {
   let ul = document.querySelector("ul.my-list");
 
   createLiButton.addEventListener("click", addListItem);
+  inputField.addEventListener("keydown", handleInputField);
 
-  function addListItem(){
-    let li = document.createElement("li");
-    let deleteButton = document.createElement("button");
-    deleteButton.innerText = " x ";
-    deleteButton.addEventListener("click", deleteListItem);
-    li.innerText = inputField.value;
-    li.appendChild(deleteButton);
-    ul.appendChild(li);
+  function handleInputField(event) {
+    if (event.key == "Enter") {
+      addListItem();
+    }
+  }
+
+  function addListItem(event){
+    if (inputField.value === "") {
+      event.preventDefault();
+    } else {
+      let li = document.createElement("li");
+      let deleteButton = document.createElement("button");
+      deleteButton.innerText = " x ";
+      deleteButton.addEventListener("click", deleteListItem);
+      li.innerText = inputField.value;
+      li.appendChild(deleteButton);
+      ul.appendChild(li);
+      refreshInputField();
+    }
+  }
+
+  function refreshInputField() {
     inputField.value = "";
+    inputField.focus();
   }
 
   function deleteListItem(){
