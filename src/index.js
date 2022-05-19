@@ -15,16 +15,16 @@ window.onload = () => {
   function addListItem(event){
     if (inputField.value === "") {
       event.preventDefault();
-    } else {
-      let li = document.createElement("li");
-      let deleteButton = document.createElement("button");
-      deleteButton.innerText = " x ";
-      deleteButton.addEventListener("click", deleteListItem);
-      li.innerText = inputField.value;
-      li.appendChild(deleteButton);
-      ul.appendChild(li);
-      refreshInputField();
+      return false;
     }
+    let li = document.createElement("li");
+    let deleteButton = document.createElement("button");
+    deleteButton.innerText = " x ";
+    deleteButton.addEventListener("click", deleteListItem);
+    li.innerText = inputField.value;
+    li.appendChild(deleteButton);
+    ul.appendChild(li);
+    refreshInputField();
   }
 
   function refreshInputField() {
