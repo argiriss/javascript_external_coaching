@@ -16,9 +16,8 @@ window.onload = () => {
     }
   }
 
-  function addListItem(event){
+  function addListItem(){
     if (inputField.value === "") {
-      event.preventDefault();
       return false;
     }
     let li = document.createElement("li");
