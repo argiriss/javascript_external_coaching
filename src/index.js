@@ -21,10 +21,12 @@ window.onload = () => {
       return false;
     }
     let li = document.createElement("li");
+    li.className = "list-item";
     let deleteButton = document.createElement("button");
-    deleteButton.innerText = " x ";
     deleteButton.addEventListener("click", deleteListItem);
-    li.innerText = inputField.value;
+    deleteButton.className = "delete-button";
+    deleteButton.innerHTML = "<i class='fas fa-trash'></i>";
+    li.innerHTML = "<span class='list-item-text'>"+inputField.value+"</span>";
     li.appendChild(deleteButton);
     ul.appendChild(li);
     refreshInputField();
