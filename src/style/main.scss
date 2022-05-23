@@ -83,5 +83,31 @@ body {
 
 .list-item-text {
   width: 196px;
+  word-break: break-all;
   padding: 3px 5px;
+}
+
+@media (max-width: 1200px) {
+  .main {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    font-size: 19px;
+  }
+
+  .li-input-field {
+    width: 78%;
+    font-size: 17px;
+  }
+
+  .list-item {
+    margin-top: 4px;
+  }
+
+  .footer {
+    font-size: 17px;
+  }
 }
