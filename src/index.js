@@ -1,3 +1,5 @@
+import './style/main.scss';
+
 window.onload = () => {
   let inputField = document.querySelector("input.li-input-field");
   let createLiButton = document.querySelector("button.create-list-item-button");
