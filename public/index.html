@@ -1,31 +1,46 @@
 <html>
   <head>
     <title>To-do list</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Create new to-do li items in a ul list from an input using JavaScript">
-    <meta name="keywords" content="JavaScript, javascript, to-do, list, ul, li, input">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="main.scss" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Create new to-do li items in a ul list from an input using JavaScript"
+    />
+    <meta
+      name="keywords"
+      content="JavaScript, javascript, to-do, list, ul, li, input"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="main.scss" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
-    <header class="header">
-      <h1>To-do list</h1>
-    </header>
-    <main class="main">
-      <div class="create-list-item">
-        <input class="li-input-field" type="text" placeholder="Enter new to-do item">
-        <button class="create-list-item-button"><i class="fas fa-plus"></i></button>
-      </div>
-      <ul class="my-list">
-      </ul>
+    <div class="page-layout">
+      <header class="header">
+        <h1>To-do list</h1>
+      </header>
+      <main class="main">
+        <div class="create-list-item">
+          <input
+            class="li-input-field"
+            type="text"
+            placeholder="Enter new to-do item"
+          />
+          <button class="create-list-item-button">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <ul class="my-list"></ul>
 
-      <p>You have <span class="list-items-count"></span> item<span class="plural-items-syntax"></span> on your to-do list!</p>
-
-    </main>
-    <footer class="footer">
-      Copyright © 2022
-    </footer>
+        <p>
+          You have <span class="list-items-count"></span> item<span
+            class="plural-items-syntax"
+          ></span>
+          on your to-do list!
+        </p>
+      </main>
+      <footer class="footer">Copyright © 2022</footer>
+    </div>
   </body>
   <script src="./bundle.js"></script>
 </html>
