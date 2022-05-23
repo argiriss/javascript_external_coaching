@@ -1,113 +1,113 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.page-layout {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100vh;
-  margin: 0;
-}
-
-.header {
-  width: 100%;
-  text-align: center;
-  background: #61d3d1;
-  margin-bottom: 15px;
-}
-
-.main {
-  display: flex;
-  width: 100%;
-  overflow: auto;
-  justify-content: center;
-  flex-flow: column;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.footer {
-  width: 100%;
-  text-align: center;
-  background: #61d3d1;
-  padding: 20px 0px;
-}
-
-.li-input-field {
-  width: 196px;
-  padding: 5px;
-}
-
-.create-list-item {
-  width: 250px;
-}
-
-.create-list-item-button {
-  width: 50px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  background: #8e49e8;
-  border: 1px solid #8e49e8;
-  cursor: pointer;
-  padding-bottom: 8px;
-  padding-top: 8px;
-}
-
-.delete-button {
-  width: 50px;
-  padding: 6px 10px;
-  color: #fff;
-  font-size: 16px;
-  background: #e74c3c;
-  border: 1px solid #e74c3c;
-  cursor: pointer;
-}
-
-.my-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.list-item {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f2f2f2;
-  width: 250px;
-  margin-top: 2px;
-}
-
-.list-item-text {
-  width: 196px;
-  word-break: break-all;
-  padding: 3px 5px;
-}
-
 @media (max-width: 1200px) {
   .main {
     justify-content: flex-start;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .page-layout {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .header {
+    width: 100%;
+    text-align: center;
+    background: #61d3d1;
+    margin-bottom: 15px;
+  }
+  
   .main {
-    font-size: 19px;
+    display: flex;
+    width: 100%;
+    overflow: auto;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+    flex-grow: 1;
   }
-
-  .li-input-field {
-    width: 78%;
-    font-size: 17px;
-  }
-
-  .list-item {
-    margin-top: 4px;
-  }
-
+  
   .footer {
-    font-size: 17px;
+    width: 100%;
+    text-align: center;
+    background: #61d3d1;
+    padding: 20px 0px;
   }
+  
+  .li-input-field {
+    width: 196px;
+    padding: 5px;
+  }
+  
+  .create-list-item {
+    width: 250px;
+  }
+  
+  .create-list-item-button {
+    width: 50px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    background: #8e49e8;
+    border: 1px solid #8e49e8;
+    cursor: pointer;
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
+  
+  .delete-button {
+    width: 50px;
+    padding: 6px 10px;
+    color: #fff;
+    font-size: 16px;
+    background: #e74c3c;
+    border: 1px solid #e74c3c;
+    cursor: pointer;
+  }
+  
+  .my-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    width: 250px;
+    margin-top: 2px;
+  }
+  
+  .list-item-text {
+    width: 196px;
+    word-break: break-all;
+    padding: 3px 5px;
+  }
+}
+
+.main {
+  font-size: 19px;
+}
+
+.li-input-field {
+  width: 78%;
+  font-size: 17px;
+}
+
+.list-item {
+  margin-top: 4px;
+}
+
+.footer {
+  font-size: 17px;
 }
