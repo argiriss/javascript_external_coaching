@@ -7,12 +7,12 @@ let searchMoviesButton = document.querySelector("button.searchMoviesButton");
 let moviesList = document.querySelector(".moviesList");
 
 window.onload = async () => {
-
-  searchMoviesButton.addEventListener("click", searchMovies);
-
+  searchMoviesButton.addEventListener("click", function () {
+    searchMovies();
+  });
 };
 
-async function searchMovies(){
+async function searchMovies() {
   moviesList.innerHTML = "";
 
   if (inputField.value === "") {
@@ -27,27 +27,27 @@ async function searchMovies(){
   );
 
   populateMoviesList(moviesResults);
-  
+
   clearResults();
 }
 
 function populateMoviesList(moviesResults) {
-  if (moviesResults.Response === "False")
-  {
+  if (moviesResults.Response === "False") {
     let errorDiv = document.createElement("div");
-    errorDiv.innerHTML = "<span class='error'>" + moviesResults.Error + "</span>";
+    errorDiv.innerHTML =
+      "<span class='error'>" + moviesResults.Error + "</span>";
     moviesList.appendChild(errorDiv);
-  }
-  else
-  {
+  } else {
     let movies = moviesResults.Search;
     for (let movie of movies) {
-      let newMovie = document.createElement("a");
+      let newMovie = document.createElement("li");
       newMovie.className = "searchResult";
       newMovie.setAttribute("data-imdbId", movie.imdbID);
-      newMovie.href = "#";
-      newMovie.innerHTML = "<span class='movieTitle'>" + movie.Title + "</span>";
-      newMovie.addEventListener("click", displayMovie(movie.imdbID));
+      newMovie.innerHTML =
+        "<span class='movieTitle'>" + movie.Title + "</span>";
+      newMovie.addEventListener("click", function () {
+        displayMovie(movie.imdbID);
+      });
 
       let img = document.createElement("img");
       img.className = "moviePoster";
@@ -64,7 +64,7 @@ async function displayMovie(imdbID) {
   const movieResults = await makeRequest(
     `${process.env.OMDB_ROUTE_PATH}?apikey=${process.env.OMDB_API_KEY}&i=${imdbID}`
   );
-  
+
   showMovieInfo(movieResults, imdbID);
 }
 
