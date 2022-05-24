@@ -23,17 +23,20 @@ window.onload = async () => {
     const moviesResults = await makeRequest(
       `${process.env.OMDB_ROUTE_PATH}?apikey=${process.env.OMDB_API_KEY}&s=${title}&y=${year}`
     );
+    console.log(moviesResults)
+
 
     populateMoviesList(moviesResults);
+
     
     clearResults();
   }
 
   function populateMoviesList(moviesResults) {
-    if (moviesResults.Error === 'Too many results.')
+    if (moviesResults.Response === "False")
     {
       let errorDiv = document.createElement("div");
-      errorDiv.innerHTML = "<span class='error'>There are too many results. Please be more specific.</span>";
+      errorDiv.innerHTML = "<span class='error'>" + moviesResults.Error + "</span>";
       moviesList.appendChild( errorDiv );
     }
     else
@@ -41,7 +44,7 @@ window.onload = async () => {
       let movies = moviesResults.Search;
       for (let movie of movies) {
         let newMovie = document.createElement("div");
-        newMovie.innerHTML = "<span class='movie-title'>"+movie.Title+"</span>";
+        newMovie.innerHTML = "<span class='movie-title'>" + movie.Title + "</span>";
         moviesList.appendChild( newMovie );
       }
     }
