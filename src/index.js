@@ -23,11 +23,8 @@ window.onload = async () => {
     const moviesResults = await makeRequest(
       `${process.env.OMDB_ROUTE_PATH}?apikey=${process.env.OMDB_API_KEY}&s=${title}&y=${year}`
     );
-    console.log(moviesResults)
-
 
     populateMoviesList(moviesResults);
-
     
     clearResults();
   }
@@ -37,17 +34,43 @@ window.onload = async () => {
     {
       let errorDiv = document.createElement("div");
       errorDiv.innerHTML = "<span class='error'>" + moviesResults.Error + "</span>";
-      moviesList.appendChild( errorDiv );
+      moviesList.appendChild(errorDiv);
     }
     else
     {
       let movies = moviesResults.Search;
       for (let movie of movies) {
-        let newMovie = document.createElement("div");
-        newMovie.innerHTML = "<span class='movie-title'>" + movie.Title + "</span>";
-        moviesList.appendChild( newMovie );
+        let newMovie = document.createElement("a");
+        newMovie.className = "searchResult";
+        newMovie.setAttribute("data-imdbId", movie.imdbID);
+        newMovie.href = "#";
+        newMovie.innerHTML = "<span class='movieTitle'>" + movie.Title + "</span>";
+        newMovie.addEventListener("click", displayMovie(movie.imdbID));
+
+        let img = document.createElement("img");
+        img.className = "moviePoster";
+        img.src = movie.Poster;
+        img.alt = movie.Title;
+        newMovie.appendChild(img);
+
+        moviesList.appendChild(newMovie);
       }
     }
+  }
+
+  async function displayMovie(imdbID) {
+    const movieResults = await makeRequest(
+      `${process.env.OMDB_ROUTE_PATH}?apikey=${process.env.OMDB_API_KEY}&i=${imdbID}`
+    );
+    
+    showMovieInfo(movieResults, imdbID);
+  }
+
+  function showMovieInfo(movieResults, imdbID) {
+    let movie = document.querySelector(`[data-imdbID="${imdbID}"]`);
+    let movieInfo = document.createElement("div");
+    movieInfo.innerHTML = movieResults.Plot;
+    movie.appendChild(movieInfo);
   }
 
   function clearResults() {
