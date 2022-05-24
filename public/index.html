@@ -13,10 +13,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div class="page-layout">
+    <div class="pageLayout">
       <header class="header">
+        <h1>Movies List</h1>
       </header>
       <main class="main">
+        <div class="searchMovie">
+          <input
+            class="movieInputField"
+            type="text"
+            placeholder="Type the movie's name"
+          />
+          <input type="number" class="yearInputField" min="1900" max="2099" step="1" value="2022" />
+          <button class="searchMoviesButton">
+            Search
+          </button>
+        </div>
+        <div class="moviesList"></div>
       </main>
       <footer class="footer">
       </footer>
