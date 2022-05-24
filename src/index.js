@@ -11,6 +11,8 @@ window.onload = async () => {
   searchMoviesButton.addEventListener("click", searchMovies);
 
   async function searchMovies(){
+    moviesList.innerHTML = "";
+
     if (inputField.value === "") {
       return false;
     }
@@ -21,16 +23,32 @@ window.onload = async () => {
     const moviesResults = await makeRequest(
       `${process.env.OMDB_ROUTE_PATH}?apikey=${process.env.OMDB_API_KEY}&s=${title}&y=${year}`
     );
-    
+
     populateMoviesList(moviesResults);
+    
+    clearResults();
   }
 
   function populateMoviesList(moviesResults) {
-    let movies = moviesResults.Search;
-    for (let movie of movies) {
-      let newMovie = document.createElement("div");
-      newMovie.innerHTML = "<span class='movie-title'>"+movie.Title+"</span>";
-      moviesList.appendChild( newMovie );
+    if (moviesResults.Error === 'Too many results.')
+    {
+      let errorDiv = document.createElement("div");
+      errorDiv.innerHTML = "<span class='error'>There are too many results. Please be more specific.</span>";
+      moviesList.appendChild( errorDiv );
     }
+    else
+    {
+      let movies = moviesResults.Search;
+      for (let movie of movies) {
+        let newMovie = document.createElement("div");
+        newMovie.innerHTML = "<span class='movie-title'>"+movie.Title+"</span>";
+        moviesList.appendChild( newMovie );
+      }
+    }
+  }
+
+  function clearResults() {
+    inputField.value = "";
+    inputField.focus();
   }
 };
