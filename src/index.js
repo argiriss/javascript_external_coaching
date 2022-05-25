@@ -78,10 +78,15 @@ async function displayMovie(imdbID) {
 
 function showMovieInfo(movieResults, imdbID) {
   let movie = document.querySelector(`[data-imdbId="${imdbID}"]`);
-  let movieInfo = document.createElement("div");
-  movieInfo.className = "movieInfo";
-  movieInfo.innerHTML = movieResults.Plot;
-  movie.appendChild(movieInfo);
+  if (movie.lastChild.className === "movieInfo") {
+    movie.lastChild.classList.toggle("hidden");
+  }
+  else {
+    let movieInfo = document.createElement("div");
+    movieInfo.className = "movieInfo";
+    movieInfo.innerHTML = movieResults.Plot;
+    movie.appendChild(movieInfo);
+  }
 }
 
 function clearResults() {
