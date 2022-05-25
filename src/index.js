@@ -20,6 +20,11 @@ function addLoader() {
   moviesList.appendChild(loaderDiv);
 }
 
+function removeLoader() {
+  let loader = document.querySelector(".loader");
+  loader.remove();
+}
+
 function handleInputField(event) {
   if (event.key == "Enter") {
     searchMovies();
@@ -28,8 +33,8 @@ function handleInputField(event) {
 
 async function searchMovies() {
   addLoader();
-
   if (inputField.value === "") {
+    removeLoader();
     return false;
   }
 
@@ -46,6 +51,7 @@ async function searchMovies() {
 }
 
 function populateMoviesList(moviesResults) {
+  removeLoader();
   moviesList.innerHTML = "";
 
   if (moviesResults.Response === "False") {
