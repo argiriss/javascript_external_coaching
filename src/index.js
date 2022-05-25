@@ -79,7 +79,7 @@ async function displayMovie(imdbID) {
 function showMovieInfo(movieResults, imdbID) {
   let movie = document.querySelector(`[data-imdbId="${imdbID}"]`);
   if (movie.lastChild.className === "movieInfo") {
-    movie.lastChild.classList.toggle("hidden");
+    movie.lastChild.remove();
   }
   else {
     let movieInfo = document.createElement("div");
