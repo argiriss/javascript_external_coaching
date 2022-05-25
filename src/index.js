@@ -10,7 +10,15 @@ window.onload = async () => {
   searchMoviesButton.addEventListener("click", function () {
     searchMovies();
   });
+
+  inputField.addEventListener("keydown", handleInputField);
 };
+
+function handleInputField(event) {
+  if (event.key == "Enter") {
+    searchMovies();
+  }
+}
 
 async function searchMovies() {
   moviesList.innerHTML = "";
@@ -69,8 +77,9 @@ async function displayMovie(imdbID) {
 }
 
 function showMovieInfo(movieResults, imdbID) {
-  let movie = document.querySelector(`[data-imdbID="${imdbID}"]`);
+  let movie = document.querySelector(`[data-imdbId="${imdbID}"]`);
   let movieInfo = document.createElement("div");
+  movieInfo.className = "movieInfo";
   movieInfo.innerHTML = movieResults.Plot;
   movie.appendChild(movieInfo);
 }
