@@ -1,4 +1,21 @@
 @media (min-width: 769px) {
+  .searchMovie {
+    width: 95%;
+  }
+
+  .searchMoviesButton {
+    flex: 1;
+    margin-top: 0px;
+  }
+  
+  .moviesList {
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+
+  .searchResult {
+    flex: 33%;
+  }
 }
 
 @media (min-width: 1201px) {
