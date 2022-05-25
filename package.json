@@ -25,7 +25,17 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0"
+    "webpack-dev-server": "^4.9.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-import-resolver-babel-module": "5.3.1",
+    "eslint-import-resolver-webpack": "0.13.1",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-module-resolver": "1.4.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.25.1",
+    "prettier": "2.3.2"
   },
   "dependencies": {
     "@babel/core": "^7.18.0",

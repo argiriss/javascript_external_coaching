@@ -1,0 +1,124 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": ["prettier", "eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:testing-library/react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "babel-module": {},
+      "webpack": {}
+    },
+    "import/extensions": [".ts", ".tsx"]
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "module-resolver/use-alias": [
+      "error",
+      {
+        "extensions": [".ts", ".tsx", ".jsx"]
+      }
+    ],
+    "@typescript-eslint/interface-name-prefix": 0,
+    "sort-keys": 0,
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "sort-imports": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", ["parent", "sibling"]],
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "newlines-between": "always"
+      }
+    ],
+    "import/newline-after-import": ["warn", { "count": 1 }],
+    "prefer-arrow-callback": 0,
+    "prefer-template": "error",
+    "no-constant-condition": ["error"],
+    "@typescript-eslint/indent": 0,
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ],
+    "no-console": "warn",
+    "semi": ["error", "always"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "max-len": ["error", { "code": 200 }],
+    "no-irregular-whitespace": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-inferrable-types": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/array-type": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/no-empty-interface": 0,
+    "react/display-name": 0,
+    "react/prop-types": 0,
+    "react/no-unescaped-entities": 0,
+    "no-prototype-builtins": 0,
+    "curly": ["error", "all"],
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": false
+      }
+    ],
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "warn",
+    "testing-library/no-dom-import": "off",
+    "testing-library/prefer-screen-queries": "off",
+    "testing-library/no-wait-for-side-effects": "error",
+    "testing-library/prefer-find-by": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["**/types/api.ts"],
+      "rules": {
+        "camelcase": "off",
+        "@typescript-eslint/camelcase": "off"
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "project": ["./tsconfig.json", "./cypress/tsconfig.json"],
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "globals": {
+    "CONFIG": true
+  },
+  "env": {
+    "jest": true,
+    "commonjs": true,
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": ["@typescript-eslint", "prettier", "module-resolver", "import", "react", "jest", "testing-library"]
+}
+
+
+
