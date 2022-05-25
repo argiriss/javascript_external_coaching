@@ -1,6 +1,6 @@
 $color1: #61d3d1;
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -70,13 +70,27 @@ input {
   }
 }
 
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  // if width and height is static,
+  // then margin-top and margin-left equals the negative half of its width
+  // and height instead of transform
+  transform: translate(-50%, -50%);
+}
+
 .moviesList {
   display: flex;
   flex-flow: column;
-  align-items: center;  
+  align-items: center;
   justify-content: center;
   margin-top: 10px;
   max-width: 70%;
+
+  li {
+    cursor: pointer;
+  }
 
   .searchResult {
     display: flex;
@@ -85,7 +99,7 @@ input {
     align-items: center;
     margin-bottom: 10px;
   }
-  
+
   .moviePoster {
     max-width: 100%;
   }
@@ -104,5 +118,5 @@ input {
 }
 
 @media only screen and (min-width: 769px) {
-  @import "./responsive/responsive.scss";
+  @import './responsive/responsive.scss';
 }
