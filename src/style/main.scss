@@ -1,5 +1,9 @@
 $color1: #61d3d1;
 
+*{
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -72,6 +76,7 @@ input {
   align-items: center;  
   justify-content: center;
   margin-top: 10px;
+  max-width: 70%;
 
   .searchResult {
     display: flex;
@@ -82,7 +87,7 @@ input {
   }
   
   .moviePoster {
-    width: 70%; 
+    max-width: 100%;
   }
 
   .movieTitle {
@@ -90,12 +95,14 @@ input {
   }
 
   .movieInfo {
-    width: 64%;
+    max-width: 100%;
     text-align: justify;
     border: 1px solid #808080;
-    margin: 5px;
-    padding: 3%;
+    margin-top: 5px;
+    padding: 5px;
   }
 }
 
-@import url("./responsive/responsive.scss");
+@media only screen and (min-width: 769px) {
+  @import "./responsive/responsive.scss";
+}
