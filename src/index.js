@@ -14,6 +14,12 @@ window.onload = async () => {
   inputField.addEventListener("keydown", handleInputField);
 };
 
+function addLoader() {
+  let loaderDiv = document.createElement("div");
+  loaderDiv.innerHTML = "<span class='loader'>Loading...</span>";
+  moviesList.appendChild(loaderDiv);
+}
+
 function handleInputField(event) {
   if (event.key == "Enter") {
     searchMovies();
@@ -21,7 +27,7 @@ function handleInputField(event) {
 }
 
 async function searchMovies() {
-  moviesList.innerHTML = "";
+  addLoader();
 
   if (inputField.value === "") {
     return false;
@@ -40,6 +46,8 @@ async function searchMovies() {
 }
 
 function populateMoviesList(moviesResults) {
+  moviesList.innerHTML = "";
+
   if (moviesResults.Response === "False") {
     let errorDiv = document.createElement("div");
     errorDiv.innerHTML =
