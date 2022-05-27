@@ -1,4 +1,3 @@
-import makeRequest from "./makeRequest";
-import formatDate from "./formatDate";
+import makeRequest from './makeRequest';
 
-export { makeRequest, formatDate };
+export { makeRequest };
